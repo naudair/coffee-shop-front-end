@@ -1,4 +1,6 @@
+import { router } from "expo-router";
 import {
+  Image,
   ImageBackground,
   Pressable,
   StyleSheet,
@@ -10,12 +12,13 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require("@/components/images/Bg1.png")}
+        source={require("@/components/images/Bg2.png")}
         resizeMode="cover"
         style={styles.image}
       >
+        <Image style={{width:270, height:200}} source={require("@/components/images/Logo.png")}/>
         <Pressable style={styles.btn}>
-          <Text style={{ fontWeight: "800", fontSize: 19, color: "#543A20" }}>
+          <Text onPress={() => router.replace('/step1')} style={{ fontWeight: "800", fontSize: 19, color: "#543A20" }}>
             Get Started
           </Text>
         </Pressable>
@@ -30,9 +33,9 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: "space-around",
     alignItems: "center",
-    paddingBottom: 120,
+    paddingTop: 90,
   },
   btn: {
     width: 242,
@@ -41,5 +44,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#CE9760",
     alignItems: "center",
     justifyContent: "center",
+    marginTop:30
   },
 });

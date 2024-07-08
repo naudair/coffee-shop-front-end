@@ -1,0 +1,17 @@
+mutation CreateUser($fields: UserInput) {
+  createUser(fields: $fields) {
+    _id
+    userName
+    email
+    password
+  }
+}
+
+query GetUsers {
+  getUsers {
+    _id
+    userName
+    email
+    password
+  }
+}

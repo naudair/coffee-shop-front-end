@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import {
   ImageBackground,
   Pressable,
@@ -6,7 +7,7 @@ import {
   View,
 } from "react-native";
 
-export default function Home() {
+export default function Step1() {
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -42,14 +43,14 @@ export default function Home() {
           </Text>
         </View>
         <View style={{ gap: 10 }}>
-          <Pressable style={styles.btn}>
+          <Pressable onPress={() => router.replace('/signup')} style={styles.btn}>
             <Text style={{ fontWeight: "800", fontSize: 19, color: "#543A20" }}>
               Sign Up
             </Text>
           </Pressable>
-          <Pressable style={styles.signIn}>
+          <Pressable onPress={() => router.replace('/login')} style={styles.signIn}>
             <Text style={{ fontWeight: "800", fontSize: 19, color: "#CE9760" }}>
-              Sign In
+              Log In
             </Text>
           </Pressable>
         </View>
