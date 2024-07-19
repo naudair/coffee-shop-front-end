@@ -16,9 +16,15 @@ export default function HomeScreen() {
         resizeMode="cover"
         style={styles.image}
       >
-        <Image style={{width:270, height:200}} source={require("@/components/images/Logo.png")}/>
+        <Image
+          style={{ width: 270, height: 200 }}
+          source={require("@/components/images/Logo.png")}
+        />
         <Pressable style={styles.btn}>
-          <Text onPress={() => router.replace('/step1')} style={{ fontWeight: "800", fontSize: 19, color: "#543A20" }}>
+          <Text
+            onPress={() => router.replace("/step1")}
+            style={{ fontWeight: "800", fontSize: 19, color: "#543A20" }}
+          >
             Get Started
           </Text>
         </Pressable>
@@ -44,6 +50,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#CE9760",
     alignItems: "center",
     justifyContent: "center",
-    marginTop:30
+    marginTop: 30,
   },
 });

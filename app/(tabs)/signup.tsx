@@ -12,9 +12,9 @@ import {
 import { router } from "expo-router";
 
 export default function SignUp() {
-  const [userName, setUserName] = useState("user");
-  const [email, setEmail] = useState("mail");
-  const [password, setPassword] = useState("password");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [createUserMutation, { data, loading, error }] =
     useCreateUserMutation();

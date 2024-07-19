@@ -6,12 +6,48 @@ mutation CreateUser($fields: UserInput) {
     password
   }
 }
-
 query GetUsers {
   getUsers {
     _id
     userName
     email
     password
+  }
+}
+mutation LoginUser($loginUserFields2: UserLoginInput) {
+  loginUser(fields: $loginUserFields2) {
+    _id
+    userName
+    email
+    password
+  }
+}
+
+mutation CreateProduct($fields: ProductInput) {
+  createProduct(fields: $fields) {
+    _id
+    imgUrl
+    name
+    price {
+      small
+      medium
+      large
+    }
+    description
+    category
+  }
+}
+query GetProducts {
+  getProducts {
+    _id
+    imgUrl
+    name
+    price {
+      small
+      medium
+      large
+    }
+    description
+    category
   }
 }
