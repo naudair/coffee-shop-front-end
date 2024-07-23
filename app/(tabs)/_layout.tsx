@@ -1,28 +1,44 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-// import { useColorScheme } from '@/hooks/useColorScheme';
+import { Tabs } from "expo-router";
+import React from "react";
 
 export default function TabLayout() {
-  // const colorScheme = useColorScheme();
-
   return (
     <Tabs
-      screenOptions={{
-        // tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+      screenOptions={({ route }) => ({
+        tabBarActiveTintColor: "#0a7ea4",
         headerShown: false,
-      }}>
-      {/* <Tabs.Screen
+        tabBarStyle: {
+          display:
+            route.name === "index" ||
+            route.name === "login" ||
+            route.name === "signup" ||
+            route.name === "step1"
+              ? "none"
+              : "flex",
+        },
+        tabBarButton: ["index", "login"].includes(route.name)
+          ? () => {
+              return null;
+            }
+          : undefined,
+      })}
+    >
+      <Tabs.Screen
         name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      /> */}
+        options={{ tabBarStyle: { display: "none" } }}
+      />
+      <Tabs.Screen
+        name="login"
+        options={{ tabBarStyle: { display: "none" } }}
+      />
+      <Tabs.Screen
+        name="signup"
+        options={{ tabBarStyle: { display: "none" } }}
+      />
+      <Tabs.Screen
+        name="step1"
+        options={{ tabBarStyle: { display: "none" } }}
+      />
     </Tabs>
   );
 }

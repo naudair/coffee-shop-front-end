@@ -20,11 +20,8 @@ export default function HomeScreen() {
           style={{ width: 270, height: 200 }}
           source={require("@/components/images/Logo.png")}
         />
-        <Pressable style={styles.btn}>
-          <Text
-            onPress={() => router.replace("/step1")}
-            style={{ fontWeight: "800", fontSize: 19, color: "#543A20" }}
-          >
+        <Pressable style={styles.btn} onPress={() => router.replace("/step1")}>
+          <Text style={{ fontWeight: "800", fontSize: 19, color: "#543A20" }}>
             Get Started
           </Text>
         </Pressable>

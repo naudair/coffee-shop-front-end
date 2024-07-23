@@ -17,13 +17,36 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+  Date: { input: any; output: any; }
+};
+
+export type Category = {
+  __typename?: 'Category';
+  _id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type CategoryInput = {
+  name: Scalars['String']['input'];
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createCategory?: Maybe<Category>;
+  createOrder?: Maybe<Order>;
   createProduct?: Maybe<Product>;
   createUser?: Maybe<User>;
   loginUser?: Maybe<User>;
+};
+
+
+export type MutationCreateCategoryArgs = {
+  fields?: InputMaybe<CategoryInput>;
+};
+
+
+export type MutationCreateOrderArgs = {
+  fields?: InputMaybe<OrderInput>;
 };
 
 
@@ -40,6 +63,31 @@ export type MutationCreateUserArgs = {
 export type MutationLoginUserArgs = {
   fields?: InputMaybe<UserLoginInput>;
 };
+
+export type Order = {
+  __typename?: 'Order';
+  _id: Scalars['ID']['output'];
+  date?: Maybe<Scalars['Date']['output']>;
+  products: Array<Maybe<Products>>;
+  promoCode?: Maybe<Scalars['String']['output']>;
+  status: OrderStatus;
+  user: Scalars['String']['output'];
+};
+
+export type OrderInput = {
+  date?: InputMaybe<Scalars['Date']['input']>;
+  products: Array<InputMaybe<ProductsInput>>;
+  promoCode?: InputMaybe<Scalars['String']['input']>;
+  status: OrderStatus;
+  user: Scalars['String']['input'];
+};
+
+export enum OrderStatus {
+  Delivered = 'delivered',
+  InProgress = 'in_progress',
+  OnTheWay = 'on_the_way',
+  Placed = 'placed'
+}
 
 export type Price = {
   __typename?: 'Price';
@@ -72,8 +120,31 @@ export type ProductInput = {
   price?: InputMaybe<PriceInput>;
 };
 
+export enum ProductSize {
+  Large = 'large',
+  Medium = 'medium',
+  Small = 'small'
+}
+
+export type Products = {
+  __typename?: 'Products';
+  milkAmount: Scalars['Int']['output'];
+  productId: Scalars['String']['output'];
+  quantity: Scalars['Int']['output'];
+  size: ProductSize;
+};
+
+export type ProductsInput = {
+  milkAmount: Scalars['Int']['input'];
+  productId: Scalars['String']['input'];
+  quantity: Scalars['Int']['input'];
+  size: ProductSize;
+};
+
 export type Query = {
   __typename?: 'Query';
+  getCategories?: Maybe<Array<Category>>;
+  getOrders?: Maybe<Array<Order>>;
   getProducts?: Maybe<Array<Product>>;
   getUsers?: Maybe<Array<User>>;
 };

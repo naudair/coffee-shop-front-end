@@ -62,7 +62,13 @@ export default function SignUp() {
         resizeMode="cover"
         style={styles.image}
       >
-        <View style={{ alignItems: "center" }}>
+        <View
+          style={{
+            alignItems: "center",
+            // justifyContent: "space-between",
+            // height: "74%",
+          }}
+        >
           <View style={{ paddingTop: 170, width: 380 }}>
             <Text
               style={{
@@ -97,6 +103,14 @@ export default function SignUp() {
               value={password}
               onChangeText={setPassword}
             />
+            <TextInput
+              style={styles.input}
+              placeholder="Confirm Password"
+              placeholderTextColor="#828282"
+              secureTextEntry
+              value={password}
+              onChangeText={setPassword}
+            />
           </View>
           <Pressable onPress={handleSignUp} style={styles.btn}>
             <Text style={{ fontWeight: "800", fontSize: 19, color: "#543A20" }}>
@@ -114,10 +128,13 @@ export default function SignUp() {
           <Text style={{ color: "#fff", fontSize: 18, fontWeight: "500" }}>
             Already have an account?
           </Text>
-            <Text onPress={() => router.replace('/login')} style={{ color: "#CE9760", fontSize: 19, fontWeight: "800" }}>
-              {"  "}
-              Login
-            </Text>
+          <Text
+            onPress={() => router.replace("/login")}
+            style={{ color: "#CE9760", fontSize: 19, fontWeight: "800" }}
+          >
+            {"  "}
+            Login
+          </Text>
         </View>
       </ImageBackground>
     </View>
@@ -140,7 +157,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#CE9760",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    // marginBottom: 200,
   },
   input: {
     backgroundColor: "#16181cd9",
