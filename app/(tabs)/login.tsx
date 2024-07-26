@@ -61,7 +61,7 @@ export default function LogIn() {
           resizeMode="cover"
           style={styles.image}
         >
-          <View style={{ alignItems: "center", gap: 116 }}>
+          <View style={{ alignItems: "center", gap: 137 }}>
             <View style={{ paddingTop: 170, width: 380 }}>
               <Text
                 style={{
@@ -136,7 +136,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    flex: 1,
+    // flex: 1,
+    height: "100%",
+    width: "100%",
+    zIndex: -2,
+    position: "absolute",
     alignItems: "center",
     justifyContent: "space-between",
   },

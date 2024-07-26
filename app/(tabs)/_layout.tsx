@@ -1,5 +1,6 @@
 import { Tabs } from "expo-router";
 import React from "react";
+import { Text } from "react-native";
 
 export default function TabLayout() {
   return (
@@ -10,13 +11,14 @@ export default function TabLayout() {
         tabBarStyle: {
           display:
             route.name === "index" ||
+            route.name === "step1" ||
             route.name === "login" ||
-            route.name === "signup" ||
-            route.name === "step1"
-              ? "none"
+            route.name === "signup"
+              ? // route.name === "home"
+                "none"
               : "flex",
         },
-        tabBarButton: ["index", "login"].includes(route.name)
+        tabBarButton: ["index", "login", "signup", "step1"].includes(route.name)
           ? () => {
               return null;
             }
@@ -28,6 +30,10 @@ export default function TabLayout() {
         options={{ tabBarStyle: { display: "none" } }}
       />
       <Tabs.Screen
+        name="step1"
+        options={{ tabBarStyle: { display: "none" } }}
+      />
+      <Tabs.Screen
         name="login"
         options={{ tabBarStyle: { display: "none" } }}
       />
@@ -36,8 +42,11 @@ export default function TabLayout() {
         options={{ tabBarStyle: { display: "none" } }}
       />
       <Tabs.Screen
-        name="step1"
-        options={{ tabBarStyle: { display: "none" } }}
+        name="home"
+        options={{
+          title: "Home",
+          tabBarIcon: ({ color, focused }) => <Text>Home</Text>,
+        }}
       />
     </Tabs>
   );

@@ -25,6 +25,11 @@ export default function HomeScreen() {
             Get Started
           </Text>
         </Pressable>
+        <Pressable style={styles.btn} onPress={() => router.replace("/home")}>
+          <Text style={{ fontWeight: "800", fontSize: 19, color: "#543A20" }}>
+            Home
+          </Text>
+        </Pressable>
       </ImageBackground>
     </View>
   );

@@ -14,8 +14,8 @@ query GetUsers {
     password
   }
 }
-mutation LoginUser($loginUserFields2: UserLoginInput) {
-  loginUser(fields: $loginUserFields2) {
+mutation LoginUser($fields: UserLoginInput) {
+  loginUser(fields: $fields) {
     _id
     userName
     email
@@ -49,5 +49,49 @@ query GetProducts {
     }
     description
     category
+  }
+}
+
+mutation CreateOrder($fields: OrderInput) {
+  createOrder(fields: $fields) {
+    _id
+    products {
+      productId
+      size
+      quantity
+      milkAmount
+    }
+    user
+    date
+    status
+    promoCode
+  }
+}
+query GetOrders {
+  getOrders {
+    _id
+    products {
+      productId
+      size
+      quantity
+      milkAmount
+    }
+    user
+    date
+    status
+    promoCode
+  }
+}
+
+mutation CreateCategory($fields: CategoryInput) {
+  createCategory(fields: $fields) {
+    _id
+    name
+  }
+}
+query GetCategories {
+  getCategories {
+    _id
+    name
   }
 }

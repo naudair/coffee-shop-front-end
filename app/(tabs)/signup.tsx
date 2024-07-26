@@ -69,7 +69,7 @@ export default function SignUp() {
             // height: "74%",
           }}
         >
-          <View style={{ paddingTop: 170, width: 380 }}>
+          <View style={{ paddingTop: 170, width: 380, gap: 9 }}>
             <Text
               style={{
                 color: "#fff",
@@ -146,7 +146,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    flex: 1,
+    // flex: 1,
+    height: "100%",
+    width: "100%",
     alignItems: "center",
     justifyContent: "space-between",
   },
@@ -157,14 +159,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#CE9760",
     alignItems: "center",
     justifyContent: "center",
-    // marginBottom: 200,
+    marginTop: 20,
   },
   input: {
     backgroundColor: "#16181cd9",
     height: 60,
     borderRadius: 11,
     paddingLeft: 25,
-    marginBottom: 9,
+    // marginBottom: 9,
     color: "#fff",
   },
   loadingContainer: {
